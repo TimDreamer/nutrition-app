@@ -1,8 +1,12 @@
 import React from "react";
 
+import Header from "./Header";
+import FoodList from "./FoodList";
+
 const App = () => (
   <div>
-    <h1>TEST</h1>
+    <Header />
+    <FoodList />
   </div>
 );
 

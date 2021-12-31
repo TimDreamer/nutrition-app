@@ -1,0 +1,57 @@
+.food {
+  display: flex;
+  justify-content: space-around;
+
+  padding: 16px 0;
+  border: 1px solid #333;
+  border-radius: 12px;
+}
+
+.food figure {
+  width: 30%;
+}
+.food img {
+  width: 100%;
+}
+.food p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.food form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+.food form h2 {
+  margin-bottom: 10px;
+}
+
+.food-form-control {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.food-form-control input {
+  width: 50%;
+  border-radius: 8px;
+}
+
+.food button {
+  display: inline-block;
+  align-self: center;
+  width: 80%;
+  padding: 16px 0;
+  background-color: lemonchiffon;
+  border: 1px solid red;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.05);
+}
+
+.food button:active {
+  transform: scale(0.9);
+  box-shadow: 0 2px 15px 8px rgba(0, 0, 0, 0.08);
+}
