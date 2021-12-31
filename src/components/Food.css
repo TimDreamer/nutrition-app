@@ -1,4 +1,5 @@
 .food {
+  background-color: #eee;
   display: flex;
   justify-content: space-around;
 
@@ -92,9 +93,22 @@
   background-color: lightcoral;
 }
 
+.food .edit-link {
+  width: 80%;
+}
+
+.food .edit {
+  width: 100%;
+  background-color: lightsalmon;
+}
+
+.food .edit:active {
+  background-color: maroon;
+  color: white;
+}
+
 .food .del {
   background-color: lightslategrey;
-  width: 50%;
 }
 
 .food .del:active {

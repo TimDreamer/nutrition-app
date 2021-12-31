@@ -45,6 +45,15 @@ app.post("/api/nutritions", async (req, res) => {
   res.status(200).send();
 });
 
+app.put("/api/nutritions", async (req, res) => {
+  const nutrition = await NutritionModel.findByIdAndUpdate(req.body._id, {
+    ...req.body,
+  });
+  console.log(req.body);
+  console.log(nutrition);
+  res.status(200).send();
+});
+
 app.delete("/:id", async (req, res) => {
   const { _id } = req.body;
   console.log(_id);

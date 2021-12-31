@@ -54,7 +54,9 @@ class Header extends Component {
             <label htmlFor="fat">fat : </label>
             <input type="text" id="fat" value={fat} disabled />
           </div>
-          <button className="clear">Clear</button>
+          <div className="clear">
+            <button className="clear-btn">Clear</button>
+          </div>
         </form>
       </div>
     );

@@ -24,8 +24,8 @@ export const removeFood = ({ _id } = {}) => ({
   _id,
 });
 
-export const editFood = ({ _id, updates } = {}) => ({
+export const editFood = (updates = {}) => ({
   type: "EDIT_FOOD",
-  _id,
+  _id: updates._id,
   payload: updates,
 });

@@ -20,13 +20,36 @@
 }
 
 .total-form {
+  background-color: khaki;
   padding: 2.4rem;
   border: 0.2rem solid red;
   border-radius: 1.2rem;
+
+  position: relative;
+  overflow: hidden;
 }
 
 .total-control {
   display: flex;
   justify-content: space-between;
   gap: 2.4rem;
+}
+
+.total-control input {
+  border-radius: 0.6rem;
+}
+
+.clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.clear-btn {
+  display: inline-block;
+  background-color: brown;
+  color: aliceblue;
+  font-size: inherit;
+  padding: 1.6rem 3.2rem;
+  border-bottom-left-radius: 1.6rem;
 }

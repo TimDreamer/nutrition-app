@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { addConsume, substractConsume } from "../actions/consume";
 import { removeFood } from "../actions/foods";
 import "./Food.css";
@@ -83,21 +84,26 @@ class Food extends Component {
               <button className="sub">Substract</button>
             </div>
           </form>
-          <button
-            className="del"
-            onClick={() => {
-              this.props.dispatch(removeFood({ _id: this.props._id }));
-              fetch(`/${this.props._id}`, {
-                method: "delete",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ _id: this.props._id }),
-              });
-            }}
-          >
-            Delete
-          </button>
+          <div className="btn-group">
+            <Link to={`/edit?${this.props._id}`} className="edit-link">
+              <button className="edit">Edit</button>
+            </Link>
+            <button
+              className="del"
+              onClick={() => {
+                this.props.dispatch(removeFood({ _id: this.props._id }));
+                fetch(`/${this.props._id}`, {
+                  method: "delete",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ _id: this.props._id }),
+                });
+              }}
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     );

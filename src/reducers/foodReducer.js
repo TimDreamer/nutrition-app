@@ -8,7 +8,7 @@ const foodReducder = (foodList = [], action) => {
       return foodList.filter((food) => food._id !== action._id);
     case "EDIT_FOOD":
       return foodList.map((food) =>
-        food.id === action.id ? { ...food, ...action.updates } : food
+        food._id === action._id ? { ...food, ...action.payload } : food
       );
     default:
       return foodList;
