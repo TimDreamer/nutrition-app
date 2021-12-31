@@ -1,9 +1,10 @@
 import { v4 as uuid } from "uuid";
 
-export const addFood = ({ kcals, carb, protein, fat, imgUrl } = {}) => ({
+export const addFood = ({ title, kcals, carb, protein, fat, imgUrl } = {}) => ({
   type: "ADD_FOOD",
   payload: {
     _id: uuid(),
+    title,
     kcals,
     carb,
     protein,
@@ -18,13 +19,13 @@ export const loadDB = (data = []) => ({
   payload: data,
 });
 
-export const removeFood = ({ id } = {}) => ({
+export const removeFood = ({ _id } = {}) => ({
   type: "REMOVE_FOOD",
-  id,
+  _id,
 });
 
-export const editFood = ({ id, updates } = {}) => ({
+export const editFood = ({ _id, updates } = {}) => ({
   type: "EDIT_FOOD",
-  id,
+  _id,
   payload: updates,
 });

@@ -3,15 +3,19 @@ import ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-import foodReducder from "./reducers/foodReducer";
+import foodReducer from "./reducers/foodReducer";
+import consumeReducer from "./reducers/consumeReducer";
 import { loadDB } from "./actions/foods";
 
 import App from "./components/App";
 
+// for console debug
+console.clear();
+
 ////////////////////////////////////////////////////////
 // Configure Redux
 const store = createStore(
-  combineReducers({ foodList: foodReducder }),
+  combineReducers({ foodList: foodReducer, consume: consumeReducer }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

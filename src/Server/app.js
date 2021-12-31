@@ -1,7 +1,6 @@
 const express = require("express");
-const path = require("path");
 const mongoose = require("mongoose");
-// const methodOverride = require("method-override");
+const bodyParser = require("body-parser");
 
 const NutritionModel = require("./models/nutrition");
 
@@ -22,11 +21,13 @@ db.once("open", () => {
 const app = express();
 const port = 9999;
 
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+// app.use(
+//   express.urlencoded({
+//     extended: true,
+//   })
+// );
+
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.redirect("/api/nutritions");
@@ -35,6 +36,20 @@ app.get("/", (req, res) => {
 app.get("/api/nutritions", async (req, res) => {
   const nutritions = await NutritionModel.find({});
   res.status(200).send(JSON.stringify(nutritions));
+});
+
+app.post("/api/nutritions", async (req, res) => {
+  console.log(req.body);
+  const nutrition = new NutritionModel(req.body);
+  await nutrition.save();
+  res.status(200).send();
+});
+
+app.delete("/:id", async (req, res) => {
+  const { _id } = req.body;
+  console.log(_id);
+  await NutritionModel.findByIdAndDelete(_id);
+  res.status(200).send();
 });
 
 app.listen(port, () => {

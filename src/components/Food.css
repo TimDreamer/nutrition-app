@@ -2,9 +2,20 @@
   display: flex;
   justify-content: space-around;
 
+  font-size: 2.8rem;
   padding: 16px 0;
   border: 1px solid #333;
   border-radius: 12px;
+}
+
+.food-title {
+  margin-bottom: 3.2rem;
+}
+
+.food-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 
 .food figure {
@@ -12,10 +23,17 @@
 }
 .food img {
   width: 100%;
+  border-radius: 50%;
 }
-.food p {
+/* .food p {
   font-size: 20px;
   font-weight: 700;
+} */
+
+.food-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .food form {
@@ -31,27 +49,54 @@
 .food-form-control {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 2.8rem;
+  font-weight: 500;
 }
 
 .food-form-control input {
   width: 50%;
   border-radius: 8px;
+  font-size: inherit;
+}
+
+.btn-group {
+  display: flex;
+  gap: 1.6rem;
 }
 
 .food button {
   display: inline-block;
   align-self: center;
   width: 80%;
+  font-size: inherit;
   padding: 16px 0;
   background-color: lemonchiffon;
   border: 1px solid red;
   border-radius: 10px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.05);
+  margin-top: 1.6rem;
+
+  transition: all 0.3s;
 }
 
 .food button:active {
   transform: scale(0.9);
   box-shadow: 0 2px 15px 8px rgba(0, 0, 0, 0.08);
+}
+
+.food .add:active {
+  background-color: lightgreen;
+}
+
+.food .sub:active {
+  background-color: lightcoral;
+}
+
+.food .del {
+  background-color: lightslategrey;
+  width: 50%;
+}
+
+.food .del:active {
+  background-color: red;
 }

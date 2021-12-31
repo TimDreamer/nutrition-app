@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: lightseagreen;
+}
+
+.main {
+  background-color: #eee;
+  margin: 3.2rem 6.4rem;
+  border-radius: 1.5rem;
+
+  position: relative;
+}

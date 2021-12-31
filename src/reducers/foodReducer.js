@@ -5,7 +5,7 @@ const foodReducder = (foodList = [], action) => {
     case "LOAD_DB":
       return foodList.concat(action.payload);
     case "REMOVE_FOOD":
-      return foodList.filter((food) => food.id !== action.id);
+      return foodList.filter((food) => food._id !== action._id);
     case "EDIT_FOOD":
       return foodList.map((food) =>
         food.id === action.id ? { ...food, ...action.updates } : food
