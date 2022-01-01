@@ -8,15 +8,14 @@ const weekCals = [1500, 1600, 1500, 1990, 1500, 1600, 1990];
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.todayCal = weekCals[new Date().getDay()];
     this.state = {
-      today: this.todayCal,
+      today: weekCals[new Date().getDay()],
     };
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.setState({ today: this.todayCal });
+    this.setState({ today: weekCals[new Date().getDay()] });
     this.props.dispatch(clearConsume());
   };
 

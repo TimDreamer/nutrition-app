@@ -65,7 +65,7 @@ class Food extends Component {
             <h2>Calculator</h2>
             <div className="food-form-control">
               <label htmlFor="factor">factor : </label>
-              <input type="number" id="factor" required />
+              <input type="number" id="factor" step="0.01" required />
             </div>
             <div className="food-form-control">
               <label htmlFor="carb">carb : </label>

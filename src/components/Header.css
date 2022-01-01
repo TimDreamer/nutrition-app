@@ -52,4 +52,11 @@
   font-size: inherit;
   padding: 1.6rem 3.2rem;
   border-bottom-left-radius: 1.6rem;
+
+  transition: all 0.3s;
+}
+
+.clear-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.05);
 }
