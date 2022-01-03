@@ -4,6 +4,22 @@ const bodyParser = require("body-parser");
 
 const NutritionModel = require("./models/nutrition");
 
+const SAVE = { active: true };
+if (SAVE.active) {
+  const fs = require("fs");
+  const path = require("path");
+  SAVE.saveDB2Local = async (fileName, data) => {
+    await fs.writeFile(
+      path.join(__dirname, fileName),
+      JSON.stringify(data),
+      (err) => console.err(err)
+    );
+  };
+  SAVE.loadDB2Local = async (fileName, data) => {
+    await new NutritionModel(JSON.parse(data)).save();
+  };
+}
+
 // mongoose.connect('mongodb://localhost:27017/nutritions', {
 //     useNewUrlParser: true,
 //     useCreateIndex: true,
@@ -35,6 +51,11 @@ app.get("/", (req, res) => {
 
 app.get("/api/nutritions", async (req, res) => {
   const nutritions = await NutritionModel.find({});
+
+  SAVE.active &&
+    SAVE.saveDB2Local &&
+    SAVE.saveDB2Local("test.json", nutritions);
+
   res.status(200).send(JSON.stringify(nutritions));
 });
 
