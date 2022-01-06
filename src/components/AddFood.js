@@ -1,8 +1,6 @@
 import FoodForm from "./FoodForm";
-import { addFood } from "../actions/foods";
+import { addFood } from "../actions";
 
-const AddFood = (props) => (
-  <FoodForm {...props} actionCreate={addFood} fetchMethodType={"post"} />
-);
+const AddFood = (props) => <FoodForm {...props} actionCreate={addFood} />;
 
 export default AddFood;

@@ -1,13 +1,8 @@
 import FoodForm from "./FoodForm";
-import { editFood } from "../actions/foods";
+import { editFood } from "../actions";
 
-const EditFood = ({ location: { search }, history }) => (
-  <FoodForm
-    actionCreate={editFood}
-    fetchMethodType="put"
-    _id={search.match(/\w+/)[0]}
-    history={history}
-  />
+const EditFood = (props) => (
+  <FoodForm actionCreate={editFood} id={props.match.params.id} />
 );
 
 export default EditFood;

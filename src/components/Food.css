@@ -93,17 +93,34 @@
   background-color: lightcoral;
 }
 
-.food .edit-link {
-  width: 80%;
+.food .btn-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.6rem;
+  text-align: center;
+}
+
+.food .edit,
+.food .del {
+  flex: 1 1 0px;
+  text-decoration: none;
+  color: #333;
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 1.2rem;
+  border: 1px solid red;
+  transition: all 0.3s;
 }
 
 .food .edit {
-  width: 100%;
   background-color: lightsalmon;
 }
 
 .food .edit:active {
   background-color: maroon;
+  transform: scale(0.9);
   color: white;
 }
 
@@ -113,4 +130,5 @@
 
 .food .del:active {
   background-color: red;
+  transform: scale(0.9);
 }

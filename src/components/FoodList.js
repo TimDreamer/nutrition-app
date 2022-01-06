@@ -4,7 +4,7 @@ import Food from "./Food";
 const FoodList = ({ foodList }) => (
   <div>
     {foodList.map((food) => (
-      <Food key={food._id} {...food} />
+      <Food key={food.id} {...food} />
     ))}
   </div>
 );

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { clearConsume } from "../actions/consume";
+import { clearConsume } from "../actions";
 import "./Header.css";
 
 const weekCals = [1500, 1600, 1500, 1990, 1500, 1600, 1990];
@@ -16,7 +16,7 @@ class Header extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.setState({ today: weekCals[new Date().getDay()] });
-    this.props.dispatch(clearConsume());
+    this.props.clearConsume();
   };
 
   render = () => {
@@ -64,4 +64,4 @@ class Header extends Component {
 
 const mapStateToProps = (state) => state.consume;
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { clearConsume })(Header);

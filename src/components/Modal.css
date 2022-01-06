@@ -1,0 +1,70 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
+/* .modal {
+  display: flex;
+  justify-content: space-around;
+} */
+
+.modal-content {
+  font-size: 2.4rem;
+  color: #eee;
+  letter-spacing: 1.6px;
+}
+
+.modal {
+  padding-top: 10vh;
+}
+
+.modal-content img {
+  border-radius: 50%;
+  border: 1px solid lightsalmon;
+}
+
+.modal-content hr {
+  margin-top: 2.4rem;
+  margin-bottom: 3.6rem;
+}
+
+.modal-btn-groups {
+  display: flex;
+  justify-content: center;
+  gap: 3.6rem;
+}
+
+.modal-confirm,
+.modal-cancel {
+  font-size: 2rem;
+  display: inline-block;
+  padding: 1.6rem 6.4rem;
+  border-radius: 1.2rem;
+  font-weight: 900;
+  margin-top: 1.6rem;
+  transition: all 0.3s;
+}
+
+.modal-cancel {
+  background-color: lightgreen;
+}
+
+.modal-confirm {
+  background-color: red;
+}
+
+.modal-cancel:active {
+  background-color: limegreen;
+  transform: scale(0.98);
+}
+
+.modal-confirm:active {
+  background-color: brown;
+  color: #eee;
+  transform: scale(0.98);
+}

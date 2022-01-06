@@ -1,8 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { addConsume, substractConsume } from "../actions/consume";
-import { removeFood } from "../actions/foods";
+import { addConsume, substractConsume } from "../actions";
 import "./Food.css";
 
 class Food extends Component {
@@ -33,15 +32,33 @@ class Food extends Component {
     }));
     switch (e.nativeEvent.submitter.className) {
       case "add":
-        this.props.dispatch(addConsume(matrix));
+        this.props.addConsume(matrix);
         break;
       case "sub":
-        this.props.dispatch(substractConsume(matrix));
+        this.props.substractConsume(matrix);
         break;
       default:
         break;
     }
   };
+
+  renderInputText(desp, val) {
+    return (
+      <div className="food-form-control">
+        <label htmlFor={desp}>{desp} : </label>
+        <input type="text" id={desp} value={val} disabled />
+      </div>
+    );
+  }
+
+  renderInputNumber(desp, step = 1) {
+    return (
+      <div className="food-form-control">
+        <label htmlFor={desp}>{desp} : </label>
+        <input type="number" id={desp} step={`${step}`} required />
+      </div>
+    );
+  }
 
   render = () => {
     const { imgUrl, title, kcals, carb, protein, fat } = this.props;
@@ -63,46 +80,22 @@ class Food extends Component {
         <div className="food-form-container">
           <form onSubmit={this.onSubmit}>
             <h2>Calculator</h2>
-            <div className="food-form-control">
-              <label htmlFor="factor">factor : </label>
-              <input type="number" id="factor" step="0.01" required />
-            </div>
-            <div className="food-form-control">
-              <label htmlFor="carb">carb : </label>
-              <input type="text" id="carb" value={facCarb} disabled />
-            </div>
-            <div className="food-form-control">
-              <label htmlFor="protein">protein : </label>
-              <input type="text" id="protein" value={facProtein} disabled />
-            </div>
-            <div className="food-form-control">
-              <label htmlFor="fat">fat : </label>
-              <input type="text" id="fat" value={facFat} disabled />
-            </div>
+            {this.renderInputNumber("factor", 0.01)}
+            {this.renderInputText("carb", facCarb)}
+            {this.renderInputText("protein", facProtein)}
+            {this.renderInputText("fat", facFat)}
             <div className="btn-group">
               <button className="add">Add</button>
               <button className="sub">Substract</button>
             </div>
           </form>
           <div className="btn-group">
-            <Link to={`/edit?${this.props._id}`} className="edit-link">
-              <button className="edit">Edit</button>
+            <Link to={`/edit/${this.props.id}`} className="edit">
+              Edit
             </Link>
-            <button
-              className="del"
-              onClick={() => {
-                this.props.dispatch(removeFood({ _id: this.props._id }));
-                fetch(`/${this.props._id}`, {
-                  method: "delete",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({ _id: this.props._id }),
-                });
-              }}
-            >
+            <Link to={`/delete/${this.props.id}`} className="del">
               Delete
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -110,4 +103,7 @@ class Food extends Component {
   };
 }
 
-export default connect()(Food);
+export default connect(null, {
+  addConsume,
+  substractConsume,
+})(Food);
