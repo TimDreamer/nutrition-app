@@ -68,7 +68,7 @@ FoodForm.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("mapS2P:", state);
+  console.log("mapS2P:", state, ownProps);
   return {
     food: {
       title: "",

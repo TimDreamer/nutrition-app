@@ -34,7 +34,9 @@ class DeleteFood extends Component {
             );
           case "imgUrl":
             return (
-              <img key={idx} src={this.props.food[key]} alt="img of food" />
+              <figure className="modal__img-box">
+                <img key={idx} src={this.props.food[key]} alt="img of food" />
+              </figure>
             );
           default:
             return null;
